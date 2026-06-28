@@ -32,6 +32,12 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: t("description"),
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://remoda.is"),
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
+      other: process.env.BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+        : {},
+    },
   };
 }
 

@@ -47,6 +47,29 @@ export default async function ProductPage({
     product.original_price_isk > product.price_isk;
   const measurements = Object.entries(product.measurements ?? {});
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://remoda.is";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    description: product.description ?? undefined,
+    image: product.product_images.map((i) => publicImageUrl(i.storage_path)),
+    brand: product.brand ? { "@type": "Brand", name: product.brand } : undefined,
+    itemCondition:
+      product.condition === "new_with_tags"
+        ? "https://schema.org/NewCondition"
+        : "https://schema.org/UsedCondition",
+    offers: {
+      "@type": "Offer",
+      price: product.price_isk,
+      priceCurrency: "ISK",
+      availability: isSold
+        ? "https://schema.org/OutOfStock"
+        : "https://schema.org/InStock",
+      url: `${siteUrl}/vara/${product.slug}`,
+    },
+  };
+
   const related = (
     await listProducts({
       gender: product.gender,
@@ -59,6 +82,10 @@ export default async function ProductPage({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Breadcrumb */}
       <nav className="mb-6 text-xs text-muted-foreground">
         <Link href="/" className="hover:text-foreground">
