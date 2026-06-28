@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import { Logo } from "@/components/brand/logo";
 
 export async function SiteFooter() {
   const t = await getTranslations();
@@ -39,9 +40,7 @@ export async function SiteFooter() {
     <footer className="mt-20 border-t border-border bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <span className="font-display text-2xl font-semibold tracking-tight">
-            Re<span className="text-accent">Moda</span>
-          </span>
+          <Logo />
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             {t("footer.tagline")}
           </p>

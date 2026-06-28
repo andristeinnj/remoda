@@ -3,6 +3,7 @@ import { Search, User } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { CartButton } from "@/components/cart/cart-button";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { Logo } from "@/components/brand/logo";
 import { CATEGORIES } from "@/lib/catalog";
 
 export async function SiteHeader() {
@@ -23,10 +24,8 @@ export async function SiteHeader() {
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center gap-6 px-4 py-4">
-        <Link href="/" className="shrink-0">
-          <span className="font-display text-2xl font-semibold tracking-tight">
-            Re<span className="text-accent">Moda</span>
-          </span>
+        <Link href="/" className="shrink-0" aria-label="ReModa">
+          <Logo />
         </Link>
 
         <nav className="hidden flex-1 items-center gap-7 md:flex">
