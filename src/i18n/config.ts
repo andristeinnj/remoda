@@ -10,11 +10,12 @@ export const localeNames: Record<Locale, string> = {
   pl: "Polski",
 };
 
-export const localeFlags: Record<Locale, string> = {
-  is: "🇮🇸",
-  en: "🇬🇧",
-  es: "🇪🇸",
-  pl: "🇵🇱",
+/** ISO 3166-1 alpha-2 country code for each locale's flag (svg in /public/flags). */
+export const localeCountry: Record<Locale, string> = {
+  is: "is",
+  en: "gb",
+  es: "es",
+  pl: "pl",
 };
 
 export const LOCALE_COOKIE = "locale";

@@ -6,7 +6,20 @@ import { useRouter } from "next/navigation";
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { setLocale } from "@/i18n/actions";
-import { locales, localeNames, localeFlags, type Locale } from "@/i18n/config";
+import { locales, localeNames, localeCountry, type Locale } from "@/i18n/config";
+
+function Flag({ locale, className }: { locale: Locale; className?: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`/flags/${localeCountry[locale]}.svg`}
+      alt=""
+      width={20}
+      height={14}
+      className={cn("h-3.5 w-5 rounded-[2px] object-cover ring-1 ring-border/60", className)}
+    />
+  );
+}
 
 export function LanguageSwitcher() {
   const activeLocale = useLocale() as Locale;
@@ -52,7 +65,7 @@ export function LanguageSwitcher() {
         className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-medium text-foreground hover:bg-muted transition-colors disabled:opacity-60"
       >
         <Globe className="size-4" />
-        <span className="hidden sm:inline">{localeFlags[activeLocale]}</span>
+        <Flag locale={activeLocale} className="hidden sm:block" />
         <ChevronDown className="size-3.5 text-muted-foreground" />
       </button>
 
@@ -74,7 +87,7 @@ export function LanguageSwitcher() {
               )}
             >
               <span className="flex items-center gap-2">
-                <span aria-hidden>{localeFlags[locale]}</span>
+                <Flag locale={locale} />
                 {localeNames[locale]}
               </span>
               {locale === activeLocale && <Check className="size-4" />}
