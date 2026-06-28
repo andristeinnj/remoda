@@ -203,5 +203,22 @@
   },
   "language": {
     "label": "Język"
+  },
+  "consent": {
+    "title": "Pliki cookie",
+    "description": "Używamy plików cookie, aby ulepszyć Twoje doświadczenie. Wybierz, które akceptujesz.",
+    "acceptAll": "Akceptuj wszystkie",
+    "rejectAll": "Odrzuć wszystkie",
+    "customize": "Dostosuj",
+    "save": "Zapisz wybór",
+    "necessary": "Niezbędne",
+    "necessaryDesc": "Wymagane do działania strony. Zawsze włączone.",
+    "analytics": "Analityka",
+    "analyticsDesc": "Pomagają nam zrozumieć, jak używana jest strona.",
+    "marketing": "Marketing",
+    "marketingDesc": "Używane do reklam spersonalizowanych.",
+    "preferences": "Preferencje",
+    "preferencesDesc": "Zapamiętują Twoje wybory i ustawienia.",
+    "manage": "Ustawienia cookie"
   }
 }

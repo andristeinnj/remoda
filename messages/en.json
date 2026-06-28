@@ -203,5 +203,22 @@
   },
   "language": {
     "label": "Language"
+  },
+  "consent": {
+    "title": "Cookies",
+    "description": "We use cookies to improve your experience. Choose which cookies you allow.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "customize": "Customize",
+    "save": "Save choices",
+    "necessary": "Necessary",
+    "necessaryDesc": "Required for the site to work. Always on.",
+    "analytics": "Analytics",
+    "analyticsDesc": "Help us understand how the site is used.",
+    "marketing": "Marketing",
+    "marketingDesc": "Used for targeted advertising.",
+    "preferences": "Preferences",
+    "preferencesDesc": "Remember your choices and settings.",
+    "manage": "Cookie settings"
   }
 }

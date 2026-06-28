@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Logo } from "@/components/brand/logo";
+import { ManageConsentButton } from "@/components/consent/manage-consent-button";
 
 export async function SiteFooter() {
   const t = await getTranslations();
@@ -66,7 +67,10 @@ export async function SiteFooter() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row">
           <p>{t("footer.rights", { year })}</p>
-          <p>{t("footer.payment")}</p>
+          <div className="flex items-center gap-4">
+            <ManageConsentButton />
+            <p>{t("footer.payment")}</p>
+          </div>
         </div>
       </div>
     </footer>

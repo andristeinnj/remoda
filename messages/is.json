@@ -203,5 +203,22 @@
   },
   "language": {
     "label": "Tungumál"
+  },
+  "consent": {
+    "title": "Vafrakökur",
+    "description": "Við notum vafrakökur til að bæta upplifun þína. Þú getur valið hvaða kökur þú leyfir.",
+    "acceptAll": "Samþykkja allar",
+    "rejectAll": "Hafna öllum",
+    "customize": "Sérsníða",
+    "save": "Vista val",
+    "necessary": "Nauðsynlegar",
+    "necessaryDesc": "Nauðsynlegar fyrir virkni vefsins. Alltaf virkar.",
+    "analytics": "Tölfræði",
+    "analyticsDesc": "Hjálpa okkur að skilja notkun vefsins.",
+    "marketing": "Markaðssetning",
+    "marketingDesc": "Notaðar fyrir markvissar auglýsingar.",
+    "preferences": "Stillingar",
+    "preferencesDesc": "Muna val þitt og stillingar.",
+    "manage": "Vafrakökustillingar"
   }
 }
