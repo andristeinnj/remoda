@@ -173,6 +173,73 @@ export async function deleteProduct(id: string) {
   revalidatePath("/admin");
 }
 
+// --- Consignment intake & payouts ---
+
+export type ReceiveResult =
+  | { ok: true; id: string; title: string }
+  | { ok: false; error: string };
+
+export async function receiveItemByToken(token: string): Promise<ReceiveResult> {
+  await assertAdmin();
+  const clean = token.trim().toUpperCase();
+  if (!clean) return { ok: false, error: "Sláðu inn miðanúmer." };
+  const supabase = createSupabaseAdminClient();
+  const { data: product } = await supabase
+    .from("products")
+    .select("id, title, intake_status")
+    .eq("qr_token", clean)
+    .maybeSingle();
+  if (!product) return { ok: false, error: `Engin vara fannst með miða ${clean}.` };
+
+  if (product.intake_status === "awaiting_reception") {
+    await supabase
+      .from("products")
+      .update({ intake_status: "received", received_at: new Date().toISOString() })
+      .eq("id", product.id);
+  }
+  revalidatePath("/admin");
+  return { ok: true, id: product.id, title: product.title };
+}
+
+export async function approveAndList(productId: string, priceISK: number) {
+  await assertAdmin();
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase
+    .from("products")
+    .update({
+      price_isk: priceISK,
+      intake_status: "listed",
+      status: "available",
+      published: true,
+      approved_at: new Date().toISOString(),
+    })
+    .eq("id", productId);
+  if (error) throw new Error(error.message);
+  revalidatePath("/admin");
+  revalidatePath(`/admin/vorur/${productId}`);
+}
+
+export async function rejectItem(productId: string, reason: string) {
+  await assertAdmin();
+  const supabase = createSupabaseAdminClient();
+  await supabase
+    .from("products")
+    .update({ intake_status: "rejected", published: false, rejection_reason: reason })
+    .eq("id", productId);
+  revalidatePath("/admin");
+  revalidatePath(`/admin/vorur/${productId}`);
+}
+
+export async function markPayoutPaid(payoutId: string) {
+  await assertAdmin();
+  const supabase = createSupabaseAdminClient();
+  await supabase
+    .from("payouts")
+    .update({ status: "paid", paid_at: new Date().toISOString() })
+    .eq("id", payoutId);
+  revalidatePath("/admin/greidslur");
+}
+
 export async function deleteProductImage(imageId: string, productId: string) {
   await assertAdmin();
   const supabase = createSupabaseAdminClient();

@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Package, ShoppingCart, Plus, Store } from "lucide-react";
+import { Package, ShoppingCart, Plus, Store, PackageCheck, Banknote } from "lucide-react";
 import { getSessionUser } from "@/lib/auth";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const nav = [
   { href: "/admin", label: "Vörur", icon: Package },
+  { href: "/admin/mottaka", label: "Móttaka", icon: PackageCheck },
   { href: "/admin/vorur/nyr", label: "Ný vara", icon: Plus },
   { href: "/admin/pantanir", label: "Pantanir", icon: ShoppingCart },
+  { href: "/admin/greidslur", label: "Greiðslur", icon: Banknote },
 ];
 
 export default async function AdminLayout({

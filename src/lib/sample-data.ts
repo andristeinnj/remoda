@@ -10,7 +10,22 @@ function img(seed: string) {
 }
 
 function make(
-  p: Omit<ProductWithImages, "product_images" | "measurements" | "published" | "updated_at"> & {
+  p: Omit<
+    ProductWithImages,
+    | "product_images"
+    | "measurements"
+    | "published"
+    | "updated_at"
+    | "seller_id"
+    | "proposed_price_isk"
+    | "commission_rate"
+    | "qr_token"
+    | "intake_status"
+    | "rejection_reason"
+    | "photos_by"
+    | "received_at"
+    | "approved_at"
+  > & {
     images: string[];
   }
 ): ProductWithImages {
@@ -20,6 +35,15 @@ function make(
     measurements: {},
     published: true,
     updated_at: rest.created_at,
+    seller_id: null,
+    proposed_price_isk: null,
+    commission_rate: 0.3,
+    qr_token: null,
+    intake_status: "listed",
+    rejection_reason: null,
+    photos_by: null,
+    received_at: null,
+    approved_at: null,
     product_images: images.map((storage_path, i) => ({
       id: `${rest.id}-img-${i}`,
       product_id: rest.id,

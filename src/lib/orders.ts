@@ -234,7 +234,7 @@ export async function markOrderPaid(
 
   const { data: items } = await supabase
     .from("order_items")
-    .select("product_id")
+    .select("product_id, price_isk_snapshot")
     .eq("order_id", orderId);
   const productIds = (items ?? [])
     .map((i) => i.product_id)
@@ -268,6 +268,38 @@ export async function markOrderPaid(
     .eq("id", orderId);
 
   if (productIds.length > 0) {
+    // Create seller payouts (70%) before flipping to sold.
+    const { data: soldProducts } = await supabase
+      .from("products")
+      .select("id, seller_id, commission_rate")
+      .in("id", productIds);
+
+    const priceByProduct = new Map(
+      (items ?? [])
+        .filter((i) => i.product_id)
+        .map((i) => [i.product_id as string, i.price_isk_snapshot])
+    );
+
+    const payoutRows = (soldProducts ?? [])
+      .filter((p) => p.seller_id)
+      .map((p) => {
+        const gross = priceByProduct.get(p.id) ?? 0;
+        const rate = Number(p.commission_rate ?? 0.3);
+        const commission = Math.round(gross * rate);
+        return {
+          seller_id: p.seller_id,
+          product_id: p.id,
+          order_id: orderId,
+          gross_isk: gross,
+          commission_isk: commission,
+          amount_isk: gross - commission,
+          status: "pending",
+        };
+      });
+    if (payoutRows.length > 0) {
+      await supabase.from("payouts").insert(payoutRows);
+    }
+
     await supabase.from("products").update({ status: "sold" }).in("id", productIds);
     await supabase.from("reservations").delete().in("product_id", productIds);
   }

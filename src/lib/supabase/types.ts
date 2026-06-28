@@ -30,7 +30,23 @@ export type ProductRow = {
   published: boolean;
   created_at: string;
   updated_at: string;
+  // Consignment marketplace
+  seller_id: string | null;
+  proposed_price_isk: number | null;
+  commission_rate: number;
+  qr_token: string | null;
+  intake_status: IntakeStatus;
+  rejection_reason: string | null;
+  photos_by: "admin" | "seller" | null;
+  received_at: string | null;
+  approved_at: string | null;
 };
+
+export type IntakeStatus =
+  | "awaiting_reception"
+  | "received"
+  | "listed"
+  | "rejected";
 
 export type ProductImageRow = {
   id: string;

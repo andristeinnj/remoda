@@ -14,6 +14,7 @@ export async function SiteHeader() {
     { label: t("nav.men"), href: "/karlar" },
     { label: t("nav.new"), href: "/leit?sort=newest" },
     { label: t("nav.sale"), href: "/leit?sale=1" },
+    { label: t("nav.sell"), href: "/selja" },
   ];
 
   return (

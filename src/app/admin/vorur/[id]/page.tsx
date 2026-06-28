@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ProductForm } from "@/components/admin/product-form";
 import { DeleteProductButton } from "@/components/admin/delete-product-button";
+import { IntakePanel } from "@/components/admin/intake-panel";
 import { saveExistingProduct } from "@/app/admin/actions";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
@@ -34,6 +35,15 @@ export default async function EditProductPage({
         </div>
         <DeleteProductButton id={id} />
       </div>
+      {product.seller_id && (
+        <div className="mt-6">
+          <IntakePanel
+            productId={id}
+            intakeStatus={product.intake_status}
+            proposedPrice={product.proposed_price_isk}
+          />
+        </div>
+      )}
       <div className="mt-6">
         <ProductForm product={product} action={action} />
       </div>
