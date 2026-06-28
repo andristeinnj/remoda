@@ -92,9 +92,9 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
         <section>
           <h2 className="font-display text-lg font-semibold">{t("contact")}</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <Field label={t("fullName")} name="name" required />
-            <Field label={t("email")} name="email" type="email" required />
-            <Field label={t("phone")} name="phone" type="tel" />
+            <Field label={t("fullName")} name="name" autoComplete="name" required />
+            <Field label={t("email")} name="email" type="email" autoComplete="email" required />
+            <Field label={t("phone")} name="phone" type="tel" autoComplete="tel" />
           </div>
         </section>
 
@@ -200,11 +200,13 @@ function Field({
   name,
   type = "text",
   required,
+  autoComplete,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  autoComplete?: string;
 }) {
   return (
     <label className="block text-sm">
@@ -216,6 +218,7 @@ function Field({
         name={name}
         type={type}
         required={required}
+        autoComplete={autoComplete}
         className="w-full rounded-lg border border-border bg-background px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       />
     </label>

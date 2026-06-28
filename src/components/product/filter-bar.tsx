@@ -45,7 +45,9 @@ export function FilterBar() {
         <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
         <input
           name="q"
+          type="search"
           defaultValue={q}
+          aria-label={t("collection.search")}
           placeholder={t("filters.searchPlaceholder")}
           className="w-full rounded-full border border-border bg-background py-2.5 pl-11 pr-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         />

@@ -60,10 +60,17 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       {mode === "signup" && (
-        <Input label={t("fullName")} name="name" type="text" required />
+        <Input label={t("fullName")} name="name" type="text" autoComplete="name" required />
       )}
-      <Input label={t("email")} name="email" type="email" required />
-      <Input label={t("password")} name="password" type="password" required minLength={6} />
+      <Input label={t("email")} name="email" type="email" autoComplete="email" required />
+      <Input
+        label={t("password")}
+        name="password"
+        type="password"
+        autoComplete={mode === "signup" ? "new-password" : "current-password"}
+        required
+        minLength={6}
+      />
 
       {error && (
         <p className="rounded-lg bg-deep-pink-50 px-3 py-2 text-sm text-deep-pink-700">
