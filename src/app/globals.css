@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ===========================================================================
+   ReModa design tokens
+   Palette: lavender-purple (brand), deep-pink (accent/sale),
+   banana-cream (highlight), deep-sky-blue (info), aquamarine (success)
+   =========================================================================== */
+
+@theme {
+  /* ---- Brand: lavender purple ---- */
+  --color-lavender-purple-50: #f1e9fb;
+  --color-lavender-purple-100: #e4d3f8;
+  --color-lavender-purple-200: #c8a7f1;
+  --color-lavender-purple-300: #ad7bea;
+  --color-lavender-purple-400: #9250e2;
+  --color-lavender-purple-500: #7624db;
+  --color-lavender-purple-600: #5f1daf;
+  --color-lavender-purple-700: #471584;
+  --color-lavender-purple-800: #2f0e58;
+  --color-lavender-purple-900: #18072c;
+  --color-lavender-purple-950: #11051f;
+
+  /* ---- Accent / sale: deep pink ---- */
+  --color-deep-pink-50: #fde8f4;
+  --color-deep-pink-100: #fbd0ea;
+  --color-deep-pink-200: #f7a1d5;
+  --color-deep-pink-300: #f372bf;
+  --color-deep-pink-400: #ef43aa;
+  --color-deep-pink-500: #eb1495;
+  --color-deep-pink-600: #bc1077;
+  --color-deep-pink-700: #8d0c59;
+  --color-deep-pink-800: #5e083c;
+  --color-deep-pink-900: #2f041e;
+  --color-deep-pink-950: #210315;
+
+  /* ---- Highlight: banana cream ---- */
+  --color-banana-cream-50: #fffce6;
+  --color-banana-cream-100: #fff8cc;
+  --color-banana-cream-200: #fef19a;
+  --color-banana-cream-300: #feea67;
+  --color-banana-cream-400: #fee334;
+  --color-banana-cream-500: #fedc01;
+  --color-banana-cream-600: #cbb001;
+  --color-banana-cream-700: #988401;
+  --color-banana-cream-800: #655801;
+  --color-banana-cream-900: #332c00;
+  --color-banana-cream-950: #241f00;
+
+  /* ---- Info: deep sky blue ---- */
+  --color-deep-sky-blue-50: #e5f9ff;
+  --color-deep-sky-blue-100: #ccf2ff;
+  --color-deep-sky-blue-200: #99e6ff;
+  --color-deep-sky-blue-300: #66d9ff;
+  --color-deep-sky-blue-400: #33ccff;
+  --color-deep-sky-blue-500: #00bfff;
+  --color-deep-sky-blue-600: #0099cc;
+  --color-deep-sky-blue-700: #007399;
+  --color-deep-sky-blue-800: #004d66;
+  --color-deep-sky-blue-900: #002633;
+  --color-deep-sky-blue-950: #001b24;
+
+  /* ---- Success: aquamarine ---- */
+  --color-aquamarine-50: #e5fffc;
+  --color-aquamarine-100: #ccfff8;
+  --color-aquamarine-200: #99fff1;
+  --color-aquamarine-300: #66ffeb;
+  --color-aquamarine-400: #33ffe4;
+  --color-aquamarine-500: #00ffdd;
+  --color-aquamarine-600: #00ccb1;
+  --color-aquamarine-700: #009985;
+  --color-aquamarine-800: #006658;
+  --color-aquamarine-900: #00332c;
+  --color-aquamarine-950: #00241f;
+
+  /* ---- Semantic roles ---- */
+  --color-background: #ffffff;
+  --color-surface: #faf7fd;
+  --color-foreground: #1c1326;
+  --color-muted: #f3eef8;
+  --color-muted-foreground: #6b5b7d;
+  --color-border: #e9e1f2;
+  --color-input: #e9e1f2;
+  --color-ring: #9250e2;
+
+  --color-primary: #7624db;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #eb1495;
+  --color-accent-foreground: #ffffff;
+
+  /* ---- Fonts ---- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* ---- Radii ---- */
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: var(--color-lavender-purple-200);
+    color: var(--color-lavender-purple-900);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Hide scrollbars on horizontal scrollers but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
