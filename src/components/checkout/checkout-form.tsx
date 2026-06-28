@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { MapPin, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/components/cart/cart-provider";
@@ -22,6 +23,7 @@ function getSessionId(): string {
 }
 
 export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
+  const t = useTranslations("checkout");
   const router = useRouter();
   const { items, subtotalISK, clear } = useCart();
   const [pending, setPending] = React.useState(false);
@@ -41,7 +43,7 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
     const fd = new FormData(e.currentTarget);
     const location = locations.find((l) => l.id === locationId);
     if (!location) {
-      setError("Veldu afhendingarstað.");
+      setError(t("errorLocation"));
       return;
     }
 
@@ -57,7 +59,7 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
     });
 
     if (!result.ok) {
-      setError(result.error);
+      setError(t("errorGeneric"));
       setPending(false);
       return;
     }
@@ -68,7 +70,6 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
       return;
     }
 
-    // Teya: build a hidden form and POST to the hosted payment page.
     clear();
     const form = document.createElement("form");
     form.method = "POST";
@@ -89,23 +90,20 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
       <div className="space-y-8">
         {/* Contact */}
         <section>
-          <h2 className="font-display text-lg font-semibold">Samskiptaupplýsingar</h2>
+          <h2 className="font-display text-lg font-semibold">{t("contact")}</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <Field label="Fullt nafn" name="name" required />
-            <Field label="Netfang" name="email" type="email" required />
-            <Field label="Símanúmer" name="phone" type="tel" />
+            <Field label={t("fullName")} name="name" required />
+            <Field label={t("email")} name="email" type="email" required />
+            <Field label={t("phone")} name="phone" type="tel" />
           </div>
         </section>
 
         {/* Dropp pickup */}
         <section>
           <h2 className="flex items-center gap-2 font-display text-lg font-semibold">
-            <MapPin className="size-5 text-lavender-purple-500" /> Afhendingarstaður
-            (Dropp)
+            <MapPin className="size-5 text-lavender-purple-500" /> {t("pickupTitle")}
           </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Veldu þann Dropp stað þar sem þú vilt sækja pöntunina.
-          </p>
+          <p className="mt-1 text-sm text-muted-foreground">{t("pickupHelp")}</p>
           <div className="mt-4 grid max-h-80 gap-2 overflow-y-auto pr-1">
             {locations.map((loc) => (
               <label
@@ -139,7 +137,7 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
 
       {/* Summary */}
       <aside className="h-fit rounded-2xl border border-border bg-surface p-6">
-        <h2 className="font-display text-lg font-semibold">Pöntun</h2>
+        <h2 className="font-display text-lg font-semibold">{t("order")}</h2>
         <ul className="mt-4 space-y-3">
           {items.map((item) => (
             <li key={item.id} className="flex gap-3">
@@ -163,15 +161,15 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
         </ul>
         <dl className="mt-4 space-y-2 border-t border-border pt-4 text-sm">
           <div className="flex justify-between">
-            <dt className="text-muted-foreground">Vörur</dt>
+            <dt className="text-muted-foreground">{t("products")}</dt>
             <dd>{formatISK(subtotalISK)}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-muted-foreground">Sending</dt>
-            <dd>{shipping === 0 ? "Frí" : formatISK(shipping)}</dd>
+            <dt className="text-muted-foreground">{t("shipping")}</dt>
+            <dd>{shipping === 0 ? formatISK(0) : formatISK(shipping)}</dd>
           </div>
           <div className="flex justify-between border-t border-border pt-2 text-base font-semibold">
-            <dt>Samtals</dt>
+            <dt>{t("total")}</dt>
             <dd>{formatISK(total)}</dd>
           </div>
         </dl>
@@ -185,15 +183,13 @@ export function CheckoutForm({ locations }: { locations: DroppLocation[] }) {
         <Button type="submit" size="lg" className="mt-6 w-full" disabled={pending}>
           {pending ? (
             <>
-              <Loader2 className="size-4 animate-spin" /> Augnablik…
+              <Loader2 className="size-4 animate-spin" /> {t("processing")}
             </>
           ) : (
-            "Greiða með Teya"
+            t("pay")
           )}
         </Button>
-        <p className="mt-3 text-center text-xs text-muted-foreground">
-          Þér verður vísað á örugga greiðslusíðu Teya.
-        </p>
+        <p className="mt-3 text-center text-xs text-muted-foreground">{t("payNote")}</p>
       </aside>
     </form>
   );

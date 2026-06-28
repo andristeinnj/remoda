@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "description": "ReModa er íslensk netverslun með notuð gæðaföt fyrir konur og karla. Einstök föt, sjálfbær tíska, sent með Dropp."
+  },
+  "announcement": "Frí heimsending með Dropp yfir 15.000 kr · Sjálfbær tíska úr fataskápum Íslands",
+  "nav": {
+    "women": "Konur",
+    "men": "Karlar",
+    "new": "Nýjar vörur",
+    "sale": "Útsala",
+    "search": "Leita",
+    "account": "Mínar síður",
+    "cart": "Karfa"
+  },
+  "common": {
+    "seeAll": "Sjá allt",
+    "shopNow": "Versla núna",
+    "free": "Frí",
+    "total": "Samtals",
+    "shipping": "Sending",
+    "items": "Vörur",
+    "size": "Stærð",
+    "productCount": "{count, plural, one {# vara} other {# vörur}}"
+  },
+  "home": {
+    "badge": "Endurnýjuð tíska",
+    "title1": "Einstök föt,",
+    "title2": "nýtt líf.",
+    "subtitle": "Handvalin notuð gæðaföt fyrir konur og karla. Verslaðu sjálfbært — hvert plagg er einstakt og á sér sögu.",
+    "shopWomen": "Versla kvenföt",
+    "shopMen": "Versla karlaföt",
+    "categories": "Flokkar",
+    "newArrivals": "Nýjar vörur",
+    "saleTitle": "Útsala",
+    "saleSubtitle": "Gerðu góð kaup á einstökum flíkum"
+  },
+  "valueProps": {
+    "sustainableTitle": "Sjálfbært",
+    "sustainableText": "Lengjum líftíma fata",
+    "checkedTitle": "Yfirfarið",
+    "checkedText": "Hvert plagg gæðametið",
+    "shippingTitle": "Sent með Dropp",
+    "shippingText": "Um allt land",
+    "uniqueTitle": "Einstakt",
+    "uniqueText": "Eitt eintak af hverju"
+  },
+  "footer": {
+    "tagline": "Endurnýjuð tíska úr fataskápum Íslands. Einstök gæðaföt á nýju lífi.",
+    "shop": "Verslun",
+    "service": "Þjónusta",
+    "about": "Um ReModa",
+    "shippingDropp": "Sendingar (Dropp)",
+    "returns": "Skilaréttur",
+    "faq": "Algengar spurningar",
+    "contact": "Hafa samband",
+    "ourStory": "Okkar saga",
+    "sustainability": "Sjálfbærni",
+    "terms": "Skilmálar",
+    "privacy": "Persónuvernd",
+    "rights": "© {year} ReModa. Öll réttindi áskilin.",
+    "payment": "Greitt á öruggan hátt með Teya · Sent með Dropp"
+  },
+  "productCard": {
+    "newTag": "Nýtt með merkimiða",
+    "sold": "Selt",
+    "noImage": "Engin mynd"
+  },
+  "product": {
+    "home": "Forsíða",
+    "size": "Stærð",
+    "condition": "Ástand",
+    "color": "Litur",
+    "category": "Flokkur",
+    "department": "Deild",
+    "measurements": "Mál",
+    "related": "Svipaðar vörur",
+    "shipNote": "Sent með Dropp á valinn afhendingarstað",
+    "uniqueNote": "Eitt eintak — þegar það er selt er það farið",
+    "addToCart": "Setja í körfu",
+    "inCart": "Í körfu — fara á kassa",
+    "sold": "Selt"
+  },
+  "collection": {
+    "women": "Konur",
+    "womenDesc": "Handvalin kvenföt á nýju lífi",
+    "men": "Karlar",
+    "menDesc": "Handvalin karlaföt á nýju lífi",
+    "search": "Leit",
+    "empty": "Engar vörur fundust.",
+    "emptyFiltered": "Engar vörur passa við leitina. Prófaðu að hreinsa síur."
+  },
+  "filters": {
+    "searchPlaceholder": "Leitaðu eftir vöru eða merki…",
+    "sale": "Útsala",
+    "clear": "Hreinsa síur"
+  },
+  "sort": {
+    "label": "Raða:",
+    "newest": "Nýjast fyrst",
+    "priceAsc": "Verð: lágt til hátt",
+    "priceDesc": "Verð: hátt til lágt"
+  },
+  "cart": {
+    "emptyTitle": "Karfan er tóm",
+    "emptyText": "Skoðaðu úrvalið og finndu eitthvað einstakt.",
+    "title": "Karfan þín",
+    "remove": "Fjarlægja",
+    "summary": "Samtals",
+    "itemsCount": "Vörur ({count})",
+    "shippingDropp": "Sending (Dropp)",
+    "freeShippingHint": "Bættu við {amount} fyrir fría sendingu",
+    "grandTotal": "Heildarverð",
+    "checkout": "Á kassann",
+    "securePayment": "Örugg greiðsla með Teya"
+  },
+  "checkout": {
+    "title": "Ganga frá pöntun",
+    "contact": "Samskiptaupplýsingar",
+    "fullName": "Fullt nafn",
+    "email": "Netfang",
+    "phone": "Símanúmer",
+    "pickupTitle": "Afhendingarstaður (Dropp)",
+    "pickupHelp": "Veldu þann Dropp stað þar sem þú vilt sækja pöntunina.",
+    "order": "Pöntun",
+    "products": "Vörur",
+    "shipping": "Sending",
+    "total": "Samtals",
+    "pay": "Greiða með Teya",
+    "processing": "Augnablik…",
+    "payNote": "Þér verður vísað á örugga greiðslusíðu Teya.",
+    "errorLocation": "Veldu afhendingarstað.",
+    "errorGeneric": "Villa kom upp. Reyndu aftur."
+  },
+  "confirmation": {
+    "title": "Takk fyrir!",
+    "received": "Pöntun þín {order} hefur verið móttekin. Staðfesting hefur verið send á netfangið þitt.",
+    "shipping": "Sending",
+    "total": "Samtals",
+    "pickup": "Sótt á: {location}",
+    "droppNote": "Þú færð tilkynningu frá Dropp þegar pöntunin er tilbúin til afhendingar.",
+    "continue": "Halda áfram að versla"
+  },
+  "auth": {
+    "loginTitle": "Skrá inn",
+    "loginSubtitle": "Skráðu þig inn til að sjá pantanir þínar.",
+    "signupTitle": "Stofna aðgang",
+    "signupSubtitle": "Búðu til aðgang til að fylgjast með pöntunum þínum.",
+    "fullName": "Fullt nafn",
+    "email": "Netfang",
+    "password": "Lykilorð",
+    "login": "Skrá inn",
+    "signup": "Stofna aðgang",
+    "haveAccount": "Áttu nú þegar aðgang?",
+    "noAccount": "Ekki með aðgang?",
+    "signupCreated": "Aðgangur stofnaður! Þú getur nú skráð þig inn.",
+    "loginError": "Rangt netfang eða lykilorð.",
+    "notConfigured": "Innskráning verður virk þegar Supabase verkefnið hefur verið tengt."
+  },
+  "account": {
+    "title": "Mínar síður",
+    "greeting": "Hæ{name}!",
+    "dashboard": "Fara í stjórnborð",
+    "orders": "Pantanir",
+    "noOrders": "Þú átt engar pantanir ennþá.",
+    "signOut": "Útskrá",
+    "notConfigured": "Aðgangar verða virkir þegar Supabase verkefnið hefur verið tengt."
+  },
+  "orderStatus": {
+    "pending": "Bíður greiðslu",
+    "paid": "Greitt",
+    "shipped": "Sent",
+    "cancelled": "Aflýst",
+    "failed": "Mistókst"
+  },
+  "gender": {
+    "women": "Konur",
+    "men": "Karlar",
+    "unisex": "Kynhlutlaust"
+  },
+  "category": {
+    "dresses": "Kjólar",
+    "tops": "Toppar & bolir",
+    "knitwear": "Prjón & peysur",
+    "outerwear": "Yfirhafnir",
+    "pants": "Buxur",
+    "skirts": "Pils",
+    "shoes": "Skór",
+    "bags": "Töskur",
+    "accessories": "Fylgihlutir"
+  },
+  "condition": {
+    "new_with_tags": "Nýtt með merkimiða",
+    "excellent": "Eins og nýtt",
+    "good": "Gott ástand",
+    "fair": "Ásættanlegt"
+  },
+  "conditionDesc": {
+    "new_with_tags": "Ónotað, með upprunalegum merkimiðum",
+    "excellent": "Lítil sem engin notkunarmerki",
+    "good": "Notað en vel með farið",
+    "fair": "Sýnileg notkunarmerki"
+  },
+  "language": {
+    "label": "Tungumál"
+  }
+}

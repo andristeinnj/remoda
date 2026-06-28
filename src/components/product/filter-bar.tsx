@@ -1,11 +1,13 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 import { CATEGORIES, GENDERS } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
 export function FilterBar() {
+  const t = useTranslations();
   const router = useRouter();
   const params = useSearchParams();
 
@@ -44,7 +46,7 @@ export function FilterBar() {
         <input
           name="q"
           defaultValue={q}
-          placeholder="Leitaðu eftir vöru eða merki…"
+          placeholder={t("filters.searchPlaceholder")}
           className="w-full rounded-full border border-border bg-background py-2.5 pl-11 pr-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         />
       </form>
@@ -56,7 +58,7 @@ export function FilterBar() {
             active={activeGender === g.key}
             onClick={() => toggle("gender", g.key)}
           >
-            {g.label}
+            {t(`gender.${g.key}`)}
           </Chip>
         ))}
         <span className="mx-1 w-px self-stretch bg-border" />
@@ -66,20 +68,21 @@ export function FilterBar() {
             active={activeCategory === c.key}
             onClick={() => toggle("category", c.key)}
           >
-            {c.label}
+            {t(`category.${c.key}`)}
           </Chip>
         ))}
         <Chip active={saleOnly} onClick={() => toggle("sale", "1")} variant="sale">
-          Útsala
+          {t("filters.sale")}
         </Chip>
       </div>
 
       {(activeCategory || activeGender || saleOnly || q) && (
         <button
+          type="button"
           onClick={() => router.push("/leit")}
           className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground"
         >
-          <X className="size-3.5" /> Hreinsa síur
+          <X className="size-3.5" /> {t("filters.clear")}
         </button>
       )}
     </div>
@@ -99,6 +102,7 @@ function Chip({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={cn(
         "rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors",

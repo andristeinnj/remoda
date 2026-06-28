@@ -4,12 +4,12 @@ import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/components/cart/cart-provider";
 
-export function CartButton() {
+export function CartButton({ label }: { label: string }) {
   const { count } = useCart();
   return (
     <Link
       href="/karfa"
-      aria-label={`Karfa, ${count} vörur`}
+      aria-label={`${label} (${count})`}
       className="relative inline-flex size-11 items-center justify-center rounded-full text-foreground hover:bg-muted transition-colors"
     >
       <ShoppingBag className="size-5" />

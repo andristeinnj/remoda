@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Check, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart, type CartItem } from "@/components/cart/cart-provider";
@@ -13,6 +13,7 @@ export function AddToCartButton({
   item: CartItem;
   sold: boolean;
 }) {
+  const t = useTranslations("product");
   const { add, has } = useCart();
   const router = useRouter();
   const inCart = has(item.id);
@@ -20,7 +21,7 @@ export function AddToCartButton({
   if (sold) {
     return (
       <Button size="lg" variant="outline" disabled className="w-full">
-        Selt
+        {t("sold")}
       </Button>
     );
   }
@@ -33,7 +34,7 @@ export function AddToCartButton({
         className="w-full"
         onClick={() => router.push("/karfa")}
       >
-        <Check className="size-4" /> Í körfu — fara á kassa
+        <Check className="size-4" /> {t("inCart")}
       </Button>
     );
   }
@@ -45,7 +46,7 @@ export function AddToCartButton({
       className="w-full"
       onClick={() => add(item)}
     >
-      <ShoppingBag className="size-4" /> Setja í körfu
+      <ShoppingBag className="size-4" /> {t("addToCart")}
     </Button>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { Recycle, Ruler, Tag, Truck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ProductGallery } from "@/components/product/product-gallery";
@@ -8,12 +9,6 @@ import { ProductGrid } from "@/components/product/product-grid";
 import { AddToCartButton } from "@/components/product/add-to-cart-button";
 import { getProductBySlug, listProducts } from "@/lib/queries";
 import { formatISK } from "@/lib/money";
-import {
-  categoryLabel,
-  conditionLabel,
-  genderLabel,
-  CONDITIONS,
-} from "@/lib/catalog";
 import { publicImageUrl } from "@/lib/supabase/config";
 
 export async function generateMetadata({
@@ -23,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-  if (!product) return { title: "Vara fannst ekki" };
+  if (!product) return {};
   return {
     title: product.title,
     description: product.description ?? undefined,
@@ -45,11 +40,11 @@ export default async function ProductPage({
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
+  const t = await getTranslations();
   const isSold = product.status === "sold";
   const onSale =
     product.original_price_isk != null &&
     product.original_price_isk > product.price_isk;
-  const conditionInfo = CONDITIONS.find((c) => c.key === product.condition);
   const measurements = Object.entries(product.measurements ?? {});
 
   const related = (
@@ -67,14 +62,14 @@ export default async function ProductPage({
       {/* Breadcrumb */}
       <nav className="mb-6 text-xs text-muted-foreground">
         <Link href="/" className="hover:text-foreground">
-          Forsíða
+          {t("product.home")}
         </Link>{" "}
         /{" "}
         <Link
           href={`/leit?category=${product.category}`}
           className="hover:text-foreground"
         >
-          {categoryLabel(product.category)}
+          {t(`category.${product.category}`)}
         </Link>{" "}
         / <span className="text-foreground">{product.title}</span>
       </nav>
@@ -115,22 +110,20 @@ export default async function ProductPage({
 
           {/* Attributes */}
           <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-            <Attribute label="Stærð" value={product.size} />
-            <Attribute label="Ástand" value={conditionLabel(product.condition)} />
-            <Attribute label="Litur" value={product.color} />
-            <Attribute label="Flokkur" value={categoryLabel(product.category)} />
-            <Attribute label="Deild" value={genderLabel(product.gender)} />
+            <Attribute label={t("product.size")} value={product.size} />
+            <Attribute label={t("product.condition")} value={t(`condition.${product.condition}`)} />
+            <Attribute label={t("product.color")} value={product.color} />
+            <Attribute label={t("product.category")} value={t(`category.${product.category}`)} />
+            <Attribute label={t("product.department")} value={t(`gender.${product.gender}`)} />
           </dl>
 
-          {conditionInfo && (
-            <p className="mt-4 rounded-lg bg-muted px-4 py-3 text-sm text-muted-foreground">
-              <Tag className="mr-2 inline size-4" />
-              <span className="font-medium text-foreground">
-                {conditionInfo.label}:
-              </span>{" "}
-              {conditionInfo.description}
-            </p>
-          )}
+          <p className="mt-4 rounded-lg bg-muted px-4 py-3 text-sm text-muted-foreground">
+            <Tag className="mr-2 inline size-4" />
+            <span className="font-medium text-foreground">
+              {t(`condition.${product.condition}`)}:
+            </span>{" "}
+            {t(`conditionDesc.${product.condition}`)}
+          </p>
 
           {product.description && (
             <p className="mt-6 whitespace-pre-line text-sm leading-relaxed text-foreground/90">
@@ -141,7 +134,7 @@ export default async function ProductPage({
           {measurements.length > 0 && (
             <div className="mt-6">
               <h2 className="flex items-center gap-2 text-sm font-semibold">
-                <Ruler className="size-4" /> Mál
+                <Ruler className="size-4" /> {t("product.measurements")}
               </h2>
               <dl className="mt-2 grid grid-cols-2 gap-x-6 gap-y-1 text-sm">
                 {measurements.map(([k, v]) => (
@@ -173,12 +166,10 @@ export default async function ProductPage({
 
           <div className="mt-6 space-y-2 text-sm text-muted-foreground">
             <p className="flex items-center gap-2">
-              <Truck className="size-4 text-lavender-purple-500" /> Sent með Dropp á
-              valinn afhendingarstað
+              <Truck className="size-4 text-lavender-purple-500" /> {t("product.shipNote")}
             </p>
             <p className="flex items-center gap-2">
-              <Recycle className="size-4 text-lavender-purple-500" /> Eitt eintak —
-              þegar það er selt er það farið
+              <Recycle className="size-4 text-lavender-purple-500" /> {t("product.uniqueNote")}
             </p>
           </div>
         </div>
@@ -186,7 +177,7 @@ export default async function ProductPage({
 
       {related.length > 0 && (
         <section className="mt-20">
-          <h2 className="font-display text-2xl font-semibold">Svipaðar vörur</h2>
+          <h2 className="font-display text-2xl font-semibold">{t("product.related")}</h2>
           <div className="mt-6">
             <ProductGrid products={related} />
           </div>

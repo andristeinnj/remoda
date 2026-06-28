@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { publicImageUrl } from "@/lib/supabase/config";
 import type { ProductImageRow } from "@/lib/supabase/types";
@@ -13,12 +14,13 @@ export function ProductGallery({
   images: ProductImageRow[];
   title: string;
 }) {
+  const t = useTranslations("productCard");
   const [active, setActive] = React.useState(0);
 
   if (images.length === 0) {
     return (
       <div className="flex aspect-[4/5] items-center justify-center rounded-2xl bg-muted text-muted-foreground">
-        Engin mynd
+        {t("noImage")}
       </div>
     );
   }
@@ -30,6 +32,7 @@ export function ProductGallery({
           {images.map((img, i) => (
             <button
               key={img.id}
+              type="button"
               onClick={() => setActive(i)}
               className={cn(
                 "relative size-16 shrink-0 overflow-hidden rounded-lg border-2 transition-colors md:size-20",

@@ -1,17 +1,19 @@
+import { getTranslations } from "next-intl/server";
 import { ProductCard } from "@/components/product/product-card";
 import type { ProductWithImages } from "@/lib/supabase/types";
 
-export function ProductGrid({
+export async function ProductGrid({
   products,
-  emptyMessage = "Engar vörur fundust.",
+  emptyMessage,
 }: {
   products: ProductWithImages[];
   emptyMessage?: string;
 }) {
+  const t = await getTranslations("collection");
   if (products.length === 0) {
     return (
       <div className="rounded-xl border border-dashed border-border py-20 text-center text-muted-foreground">
-        {emptyMessage}
+        {emptyMessage ?? t("empty")}
       </div>
     );
   }

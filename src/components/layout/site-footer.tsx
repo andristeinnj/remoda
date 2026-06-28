@@ -1,36 +1,40 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-const columns = [
-  {
-    title: "Verslun",
-    links: [
-      { label: "Konur", href: "/konur" },
-      { label: "Karlar", href: "/karlar" },
-      { label: "Nýjar vörur", href: "/leit?sort=newest" },
-      { label: "Útsala", href: "/leit?sale=1" },
-    ],
-  },
-  {
-    title: "Þjónusta",
-    links: [
-      { label: "Sendingar (Dropp)", href: "/sendingar" },
-      { label: "Skilaréttur", href: "/skil" },
-      { label: "Algengar spurningar", href: "/spurningar" },
-      { label: "Hafa samband", href: "/hafa-samband" },
-    ],
-  },
-  {
-    title: "Um ReModa",
-    links: [
-      { label: "Okkar saga", href: "/um-okkur" },
-      { label: "Sjálfbærni", href: "/sjalfbaerni" },
-      { label: "Skilmálar", href: "/skilmalar" },
-      { label: "Persónuvernd", href: "/personuvernd" },
-    ],
-  },
-];
+export async function SiteFooter() {
+  const t = await getTranslations();
+  const year = new Date().getFullYear();
 
-export function SiteFooter() {
+  const columns = [
+    {
+      title: t("footer.shop"),
+      links: [
+        { label: t("nav.women"), href: "/konur" },
+        { label: t("nav.men"), href: "/karlar" },
+        { label: t("nav.new"), href: "/leit?sort=newest" },
+        { label: t("nav.sale"), href: "/leit?sale=1" },
+      ],
+    },
+    {
+      title: t("footer.service"),
+      links: [
+        { label: t("footer.shippingDropp"), href: "/sendingar" },
+        { label: t("footer.returns"), href: "/skil" },
+        { label: t("footer.faq"), href: "/spurningar" },
+        { label: t("footer.contact"), href: "/hafa-samband" },
+      ],
+    },
+    {
+      title: t("footer.about"),
+      links: [
+        { label: t("footer.ourStory"), href: "/um-okkur" },
+        { label: t("footer.sustainability"), href: "/sjalfbaerni" },
+        { label: t("footer.terms"), href: "/skilmalar" },
+        { label: t("footer.privacy"), href: "/personuvernd" },
+      ],
+    },
+  ];
+
   return (
     <footer className="mt-20 border-t border-border bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -39,7 +43,7 @@ export function SiteFooter() {
             Re<span className="text-accent">Moda</span>
           </span>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-            Endurnýjuð tíska úr fataskápum Íslands. Einstök gæðaföt á nýju lífi.
+            {t("footer.tagline")}
           </p>
         </div>
         {columns.map((col) => (
@@ -62,8 +66,8 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} ReModa. Öll réttindi áskilin.</p>
-          <p>Greitt á öruggan hátt með Teya · Sent með Dropp</p>
+          <p>{t("footer.rights", { year })}</p>
+          <p>{t("footer.payment")}</p>
         </div>
       </div>
     </footer>

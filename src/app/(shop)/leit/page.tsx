@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { getTranslations } from "next-intl/server";
 import { FilterBar } from "@/components/product/filter-bar";
 import { ProductGrid } from "@/components/product/product-grid";
 import { SortSelect } from "@/components/product/sort-select";
 import { listProducts, type ProductSort } from "@/lib/queries";
 import type { ProductGender } from "@/lib/supabase/types";
 
-export const metadata: Metadata = {
-  title: "Leit",
-  description: "Leitaðu í öllum vörum ReModa.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("collection");
+  return { title: t("search") };
+}
 
 export default async function SearchPage({
   searchParams,
@@ -17,6 +18,7 @@ export default async function SearchPage({
   searchParams: Promise<Record<string, string | undefined>>;
 }) {
   const sp = await searchParams;
+  const t = await getTranslations();
   const products = await listProducts({
     gender: sp.gender as ProductGender | undefined,
     category: sp.category,
@@ -27,7 +29,7 @@ export default async function SearchPage({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <h1 className="font-display text-3xl font-semibold">Leit</h1>
+      <h1 className="font-display text-3xl font-semibold">{t("collection.search")}</h1>
       <div className="mt-6">
         <Suspense>
           <FilterBar />
@@ -36,7 +38,7 @@ export default async function SearchPage({
 
       <div className="mt-8 flex items-center justify-between">
         <p className="text-xs text-muted-foreground">
-          {products.length} {products.length === 1 ? "vara" : "vörur"}
+          {t("common.productCount", { count: products.length })}
         </p>
         <Suspense>
           <SortSelect />
@@ -46,7 +48,7 @@ export default async function SearchPage({
       <div className="mt-6">
         <ProductGrid
           products={products}
-          emptyMessage="Engar vörur passa við leitina. Prófaðu að hreinsa síur."
+          emptyMessage={t("collection.emptyFiltered")}
         />
       </div>
     </div>

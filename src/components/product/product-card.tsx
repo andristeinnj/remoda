@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Badge } from "@/components/ui/badge";
 import { formatISK } from "@/lib/money";
-import { conditionLabel } from "@/lib/catalog";
 import { publicImageUrl } from "@/lib/supabase/config";
 import type { ProductWithImages } from "@/lib/supabase/types";
 
-export function ProductCard({ product }: { product: ProductWithImages }) {
+export async function ProductCard({ product }: { product: ProductWithImages }) {
+  const t = await getTranslations();
   const cover = product.product_images?.[0];
   const isSold = product.status === "sold";
   const onSale =
@@ -31,21 +32,21 @@ export function ProductCard({ product }: { product: ProductWithImages }) {
           />
         ) : (
           <div className="flex h-full items-center justify-center text-muted-foreground">
-            Engin mynd
+            {t("productCard.noImage")}
           </div>
         )}
 
         <div className="absolute left-3 top-3 flex flex-col gap-1.5">
           {onSale && !isSold && <Badge variant="sale">-{discount}%</Badge>}
           {product.condition === "new_with_tags" && !isSold && (
-            <Badge variant="success">Nýtt með merkimiða</Badge>
+            <Badge variant="success">{t("productCard.newTag")}</Badge>
           )}
         </div>
 
         {isSold && (
           <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-[1px]">
             <Badge variant="sold" className="px-4 py-1.5 text-sm">
-              Selt
+              {t("productCard.sold")}
             </Badge>
           </div>
         )}
@@ -61,7 +62,7 @@ export function ProductCard({ product }: { product: ProductWithImages }) {
           {product.title}
         </h3>
         <p className="text-xs text-muted-foreground">
-          {[product.size, conditionLabel(product.condition)]
+          {[product.size, t(`condition.${product.condition}`)]
             .filter(Boolean)
             .join(" · ")}
         </p>

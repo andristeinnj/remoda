@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "description": "ReModa to islandzki sklep internetowy z używaną odzieżą wysokiej jakości dla kobiet i mężczyzn. Wyjątkowe rzeczy, moda zrównoważona, wysyłka przez Dropp."
+  },
+  "announcement": "Darmowa wysyłka Dropp od 15 000 kr · Zrównoważona moda z szaf Islandii",
+  "nav": {
+    "women": "Kobiety",
+    "men": "Mężczyźni",
+    "new": "Nowości",
+    "sale": "Wyprzedaż",
+    "search": "Szukaj",
+    "account": "Moje konto",
+    "cart": "Koszyk"
+  },
+  "common": {
+    "seeAll": "Zobacz wszystko",
+    "shopNow": "Kup teraz",
+    "free": "Gratis",
+    "total": "Razem",
+    "shipping": "Wysyłka",
+    "items": "Produkty",
+    "size": "Rozmiar",
+    "productCount": "{count, plural, one {# produkt} few {# produkty} many {# produktów} other {# produktu}}"
+  },
+  "home": {
+    "badge": "Odnowiona moda",
+    "title1": "Wyjątkowe rzeczy,",
+    "title2": "nowe życie.",
+    "subtitle": "Ręcznie wybrana używana odzież wysokiej jakości dla kobiet i mężczyzn. Kupuj w zrównoważony sposób — każda rzecz jest jedyna w swoim rodzaju i ma swoją historię.",
+    "shopWomen": "Kupuj dla kobiet",
+    "shopMen": "Kupuj dla mężczyzn",
+    "categories": "Kategorie",
+    "newArrivals": "Nowości",
+    "saleTitle": "Wyprzedaż",
+    "saleSubtitle": "Znajdź świetne okazje na wyjątkowe ubrania"
+  },
+  "valueProps": {
+    "sustainableTitle": "Zrównoważone",
+    "sustainableText": "Wydłużamy życie ubrań",
+    "checkedTitle": "Sprawdzone",
+    "checkedText": "Każda rzecz oceniona pod kątem jakości",
+    "shippingTitle": "Wysyłka Dropp",
+    "shippingText": "W całej Islandii",
+    "uniqueTitle": "Wyjątkowe",
+    "uniqueText": "Jedna sztuka każdej rzeczy"
+  },
+  "footer": {
+    "tagline": "Odnowiona moda z szaf Islandii. Wyjątkowa, jakościowa odzież z nowym życiem.",
+    "shop": "Sklep",
+    "service": "Obsługa",
+    "about": "O ReModa",
+    "shippingDropp": "Wysyłka (Dropp)",
+    "returns": "Zwroty",
+    "faq": "Częste pytania",
+    "contact": "Kontakt",
+    "ourStory": "Nasza historia",
+    "sustainability": "Zrównoważony rozwój",
+    "terms": "Regulamin",
+    "privacy": "Prywatność",
+    "rights": "© {year} ReModa. Wszelkie prawa zastrzeżone.",
+    "payment": "Bezpieczna płatność przez Teya · Wysyłka przez Dropp"
+  },
+  "productCard": {
+    "newTag": "Nowe z metką",
+    "sold": "Sprzedane",
+    "noImage": "Brak zdjęcia"
+  },
+  "product": {
+    "home": "Strona główna",
+    "size": "Rozmiar",
+    "condition": "Stan",
+    "color": "Kolor",
+    "category": "Kategoria",
+    "department": "Dział",
+    "measurements": "Wymiary",
+    "related": "Podobne produkty",
+    "shipNote": "Wysyłka przez Dropp do wybranego punktu odbioru",
+    "uniqueNote": "Jedyny egzemplarz — gdy się sprzeda, znika",
+    "addToCart": "Dodaj do koszyka",
+    "inCart": "W koszyku — przejdź do kasy",
+    "sold": "Sprzedane"
+  },
+  "collection": {
+    "women": "Kobiety",
+    "womenDesc": "Ręcznie wybrana odzież damska z nowym życiem",
+    "men": "Mężczyźni",
+    "menDesc": "Ręcznie wybrana odzież męska z nowym życiem",
+    "search": "Szukaj",
+    "empty": "Nie znaleziono produktów.",
+    "emptyFiltered": "Żaden produkt nie pasuje do wyszukiwania. Spróbuj wyczyścić filtry."
+  },
+  "filters": {
+    "searchPlaceholder": "Szukaj po produkcie lub marce…",
+    "sale": "Wyprzedaż",
+    "clear": "Wyczyść filtry"
+  },
+  "sort": {
+    "label": "Sortuj:",
+    "newest": "Najnowsze najpierw",
+    "priceAsc": "Cena: od najniższej",
+    "priceDesc": "Cena: od najwyższej"
+  },
+  "cart": {
+    "emptyTitle": "Twój koszyk jest pusty",
+    "emptyText": "Przejrzyj ofertę i znajdź coś wyjątkowego.",
+    "title": "Twój koszyk",
+    "remove": "Usuń",
+    "summary": "Podsumowanie",
+    "itemsCount": "Produkty ({count})",
+    "shippingDropp": "Wysyłka (Dropp)",
+    "freeShippingHint": "Dodaj jeszcze {amount}, aby uzyskać darmową wysyłkę",
+    "grandTotal": "Do zapłaty",
+    "checkout": "Do kasy",
+    "securePayment": "Bezpieczna płatność przez Teya"
+  },
+  "checkout": {
+    "title": "Sfinalizuj zamówienie",
+    "contact": "Dane kontaktowe",
+    "fullName": "Imię i nazwisko",
+    "email": "E-mail",
+    "phone": "Numer telefonu",
+    "pickupTitle": "Punkt odbioru (Dropp)",
+    "pickupHelp": "Wybierz punkt Dropp, w którym chcesz odebrać zamówienie.",
+    "order": "Zamówienie",
+    "products": "Produkty",
+    "shipping": "Wysyłka",
+    "total": "Razem",
+    "pay": "Zapłać przez Teya",
+    "processing": "Chwileczkę…",
+    "payNote": "Zostaniesz przekierowany na bezpieczną stronę płatności Teya.",
+    "errorLocation": "Wybierz punkt odbioru.",
+    "errorGeneric": "Coś poszło nie tak. Spróbuj ponownie."
+  },
+  "confirmation": {
+    "title": "Dziękujemy!",
+    "received": "Twoje zamówienie {order} zostało przyjęte. Potwierdzenie wysłaliśmy na Twój e-mail.",
+    "shipping": "Wysyłka",
+    "total": "Razem",
+    "pickup": "Odbiór w: {location}",
+    "droppNote": "Otrzymasz powiadomienie od Dropp, gdy zamówienie będzie gotowe do odbioru.",
+    "continue": "Kontynuuj zakupy"
+  },
+  "auth": {
+    "loginTitle": "Zaloguj się",
+    "loginSubtitle": "Zaloguj się, aby zobaczyć swoje zamówienia.",
+    "signupTitle": "Załóż konto",
+    "signupSubtitle": "Załóż konto, aby śledzić swoje zamówienia.",
+    "fullName": "Imię i nazwisko",
+    "email": "E-mail",
+    "password": "Hasło",
+    "login": "Zaloguj się",
+    "signup": "Załóż konto",
+    "haveAccount": "Masz już konto?",
+    "noAccount": "Nie masz konta?",
+    "signupCreated": "Konto utworzone! Możesz się teraz zalogować.",
+    "loginError": "Nieprawidłowy e-mail lub hasło.",
+    "notConfigured": "Logowanie zostanie włączone po połączeniu projektu Supabase."
+  },
+  "account": {
+    "title": "Moje konto",
+    "greeting": "Cześć{name}!",
+    "dashboard": "Przejdź do panelu",
+    "orders": "Zamówienia",
+    "noOrders": "Nie masz jeszcze żadnych zamówień.",
+    "signOut": "Wyloguj się",
+    "notConfigured": "Konta zostaną włączone po połączeniu projektu Supabase."
+  },
+  "orderStatus": {
+    "pending": "Oczekuje na płatność",
+    "paid": "Opłacone",
+    "shipped": "Wysłane",
+    "cancelled": "Anulowane",
+    "failed": "Nieudane"
+  },
+  "gender": {
+    "women": "Kobiety",
+    "men": "Mężczyźni",
+    "unisex": "Uniseks"
+  },
+  "category": {
+    "dresses": "Sukienki",
+    "tops": "Topy i koszulki",
+    "knitwear": "Dzianiny i swetry",
+    "outerwear": "Okrycia wierzchnie",
+    "pants": "Spodnie",
+    "skirts": "Spódnice",
+    "shoes": "Buty",
+    "bags": "Torby",
+    "accessories": "Akcesoria"
+  },
+  "condition": {
+    "new_with_tags": "Nowe z metką",
+    "excellent": "Jak nowe",
+    "good": "Dobry stan",
+    "fair": "Akceptowalny"
+  },
+  "conditionDesc": {
+    "new_with_tags": "Nieużywane, z oryginalnymi metkami",
+    "excellent": "Niewielkie lub żadne ślady użytkowania",
+    "good": "Używane, ale zadbane",
+    "fair": "Widoczne ślady użytkowania"
+  },
+  "language": {
+    "label": "Język"
+  }
+}

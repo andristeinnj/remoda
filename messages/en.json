@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "description": "ReModa is an Icelandic online store for quality second-hand clothing for women and men. Unique pieces, sustainable fashion, shipped with Dropp."
+  },
+  "announcement": "Free Dropp shipping over 15,000 kr · Sustainable fashion from Iceland's wardrobes",
+  "nav": {
+    "women": "Women",
+    "men": "Men",
+    "new": "New in",
+    "sale": "Sale",
+    "search": "Search",
+    "account": "My account",
+    "cart": "Cart"
+  },
+  "common": {
+    "seeAll": "See all",
+    "shopNow": "Shop now",
+    "free": "Free",
+    "total": "Total",
+    "shipping": "Shipping",
+    "items": "Items",
+    "size": "Size",
+    "productCount": "{count, plural, one {# item} other {# items}}"
+  },
+  "home": {
+    "badge": "Renewed fashion",
+    "title1": "Unique pieces,",
+    "title2": "new life.",
+    "subtitle": "Hand-picked quality second-hand clothing for women and men. Shop sustainably — every piece is one of a kind with a story to tell.",
+    "shopWomen": "Shop women",
+    "shopMen": "Shop men",
+    "categories": "Categories",
+    "newArrivals": "New arrivals",
+    "saleTitle": "Sale",
+    "saleSubtitle": "Find great deals on unique pieces"
+  },
+  "valueProps": {
+    "sustainableTitle": "Sustainable",
+    "sustainableText": "Extending the life of clothes",
+    "checkedTitle": "Inspected",
+    "checkedText": "Every piece quality-checked",
+    "shippingTitle": "Dropp delivery",
+    "shippingText": "All over Iceland",
+    "uniqueTitle": "Unique",
+    "uniqueText": "One of each item"
+  },
+  "footer": {
+    "tagline": "Renewed fashion from Iceland's wardrobes. Unique quality clothing given a new life.",
+    "shop": "Shop",
+    "service": "Service",
+    "about": "About ReModa",
+    "shippingDropp": "Shipping (Dropp)",
+    "returns": "Returns",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "ourStory": "Our story",
+    "sustainability": "Sustainability",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "rights": "© {year} ReModa. All rights reserved.",
+    "payment": "Secure payment with Teya · Shipped with Dropp"
+  },
+  "productCard": {
+    "newTag": "New with tags",
+    "sold": "Sold",
+    "noImage": "No image"
+  },
+  "product": {
+    "home": "Home",
+    "size": "Size",
+    "condition": "Condition",
+    "color": "Color",
+    "category": "Category",
+    "department": "Department",
+    "measurements": "Measurements",
+    "related": "Similar items",
+    "shipNote": "Shipped with Dropp to your chosen pickup point",
+    "uniqueNote": "One of a kind — once it's sold, it's gone",
+    "addToCart": "Add to cart",
+    "inCart": "In cart — go to checkout",
+    "sold": "Sold"
+  },
+  "collection": {
+    "women": "Women",
+    "womenDesc": "Hand-picked women's clothing given a new life",
+    "men": "Men",
+    "menDesc": "Hand-picked men's clothing given a new life",
+    "search": "Search",
+    "empty": "No items found.",
+    "emptyFiltered": "No items match your search. Try clearing the filters."
+  },
+  "filters": {
+    "searchPlaceholder": "Search by item or brand…",
+    "sale": "Sale",
+    "clear": "Clear filters"
+  },
+  "sort": {
+    "label": "Sort:",
+    "newest": "Newest first",
+    "priceAsc": "Price: low to high",
+    "priceDesc": "Price: high to low"
+  },
+  "cart": {
+    "emptyTitle": "Your cart is empty",
+    "emptyText": "Browse the selection and find something unique.",
+    "title": "Your cart",
+    "remove": "Remove",
+    "summary": "Summary",
+    "itemsCount": "Items ({count})",
+    "shippingDropp": "Shipping (Dropp)",
+    "freeShippingHint": "Add {amount} more for free shipping",
+    "grandTotal": "Grand total",
+    "checkout": "Checkout",
+    "securePayment": "Secure payment with Teya"
+  },
+  "checkout": {
+    "title": "Complete your order",
+    "contact": "Contact details",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone number",
+    "pickupTitle": "Pickup point (Dropp)",
+    "pickupHelp": "Choose the Dropp location where you'd like to collect your order.",
+    "order": "Order",
+    "products": "Items",
+    "shipping": "Shipping",
+    "total": "Total",
+    "pay": "Pay with Teya",
+    "processing": "One moment…",
+    "payNote": "You'll be redirected to Teya's secure payment page.",
+    "errorLocation": "Please choose a pickup point.",
+    "errorGeneric": "Something went wrong. Please try again."
+  },
+  "confirmation": {
+    "title": "Thank you!",
+    "received": "Your order {order} has been received. A confirmation has been sent to your email.",
+    "shipping": "Shipping",
+    "total": "Total",
+    "pickup": "Pickup at: {location}",
+    "droppNote": "You'll get a notification from Dropp when your order is ready for collection.",
+    "continue": "Continue shopping"
+  },
+  "auth": {
+    "loginTitle": "Sign in",
+    "loginSubtitle": "Sign in to see your orders.",
+    "signupTitle": "Create account",
+    "signupSubtitle": "Create an account to track your orders.",
+    "fullName": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "login": "Sign in",
+    "signup": "Create account",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "signupCreated": "Account created! You can now sign in.",
+    "loginError": "Incorrect email or password.",
+    "notConfigured": "Sign-in will be enabled once the Supabase project is connected."
+  },
+  "account": {
+    "title": "My account",
+    "greeting": "Hi{name}!",
+    "dashboard": "Go to dashboard",
+    "orders": "Orders",
+    "noOrders": "You don't have any orders yet.",
+    "signOut": "Sign out",
+    "notConfigured": "Accounts will be enabled once the Supabase project is connected."
+  },
+  "orderStatus": {
+    "pending": "Awaiting payment",
+    "paid": "Paid",
+    "shipped": "Shipped",
+    "cancelled": "Cancelled",
+    "failed": "Failed"
+  },
+  "gender": {
+    "women": "Women",
+    "men": "Men",
+    "unisex": "Unisex"
+  },
+  "category": {
+    "dresses": "Dresses",
+    "tops": "Tops & shirts",
+    "knitwear": "Knitwear",
+    "outerwear": "Outerwear",
+    "pants": "Trousers",
+    "skirts": "Skirts",
+    "shoes": "Shoes",
+    "bags": "Bags",
+    "accessories": "Accessories"
+  },
+  "condition": {
+    "new_with_tags": "New with tags",
+    "excellent": "Like new",
+    "good": "Good condition",
+    "fair": "Acceptable"
+  },
+  "conditionDesc": {
+    "new_with_tags": "Unused, with original tags",
+    "excellent": "Little to no signs of wear",
+    "good": "Used but well kept",
+    "fair": "Visible signs of wear"
+  },
+  "language": {
+    "label": "Language"
+  }
+}
