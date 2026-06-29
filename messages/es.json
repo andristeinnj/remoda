@@ -9,6 +9,7 @@
     "new": "Novedades",
     "sale": "Rebajas",
     "sell": "Vender",
+    "wishlist": "Favoritos",
     "search": "Buscar",
     "account": "Mi cuenta",
     "cart": "Cesta"
@@ -220,5 +221,11 @@
     "preferences": "Preferencias",
     "preferencesDesc": "Recordar tus opciones y ajustes.",
     "manage": "Configuración de cookies"
+  },
+  "wishlist": {
+    "title": "Tus favoritos",
+    "empty": "Tu lista de favoritos está vacía.",
+    "add": "Añadir a favoritos",
+    "remove": "Quitar de favoritos"
   }
 }

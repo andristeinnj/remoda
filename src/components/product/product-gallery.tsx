@@ -10,9 +10,11 @@ import type { ProductImageRow } from "@/lib/supabase/types";
 export function ProductGallery({
   images,
   title,
+  slug,
 }: {
   images: ProductImageRow[];
   title: string;
+  slug?: string;
 }) {
   const t = useTranslations("productCard");
   const [active, setActive] = React.useState(0);
@@ -51,7 +53,10 @@ export function ProductGallery({
           ))}
         </div>
       )}
-      <div className="relative aspect-[4/5] flex-1 overflow-hidden rounded-2xl bg-muted">
+      <div
+        className="relative aspect-[4/5] flex-1 overflow-hidden rounded-2xl bg-muted"
+        style={slug ? { viewTransitionName: `vt-${slug}` } : undefined}
+      >
         <Image
           src={publicImageUrl(images[active].storage_path)}
           alt={images[active].alt ?? title}

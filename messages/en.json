@@ -9,6 +9,7 @@
     "new": "New in",
     "sale": "Sale",
     "sell": "Sell",
+    "wishlist": "Wishlist",
     "search": "Search",
     "account": "My account",
     "cart": "Cart"
@@ -220,5 +221,11 @@
     "preferences": "Preferences",
     "preferencesDesc": "Remember your choices and settings.",
     "manage": "Cookie settings"
+  },
+  "wishlist": {
+    "title": "Your wishlist",
+    "empty": "Your wishlist is empty.",
+    "add": "Add to wishlist",
+    "remove": "Remove from wishlist"
   }
 }

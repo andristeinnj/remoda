@@ -9,6 +9,7 @@
     "new": "Nýjar vörur",
     "sale": "Útsala",
     "sell": "Selja",
+    "wishlist": "Óskalisti",
     "search": "Leita",
     "account": "Mínar síður",
     "cart": "Karfa"
@@ -220,5 +221,11 @@
     "preferences": "Stillingar",
     "preferencesDesc": "Muna val þitt og stillingar.",
     "manage": "Vafrakökustillingar"
+  },
+  "wishlist": {
+    "title": "Óskalistinn þinn",
+    "empty": "Óskalistinn er tómur.",
+    "add": "Setja á óskalista",
+    "remove": "Fjarlægja af óskalista"
   }
 }

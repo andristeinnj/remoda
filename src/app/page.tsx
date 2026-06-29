@@ -4,6 +4,7 @@ import { ArrowRight, Recycle, Truck, ShieldCheck, Sparkles } from "lucide-react"
 import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { ProductGrid } from "@/components/product/product-grid";
+import { Reveal } from "@/components/ui/reveal";
 import { listProducts } from "@/lib/queries";
 import { CATEGORIES, GENDERS } from "@/lib/catalog";
 
@@ -117,9 +118,9 @@ export default async function HomePage() {
             {t("common.seeAll")} <ArrowRight className="size-4" />
           </Link>
         </div>
-        <div className="mt-6">
+        <Reveal className="mt-6">
           <ProductGrid products={newest} />
-        </div>
+        </Reveal>
       </section>
 
       {/* Sale banner */}
@@ -151,7 +152,7 @@ export default async function HomePage() {
 
       {/* Gender split CTA */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
-        <div className="grid gap-4 md:grid-cols-2">
+        <Reveal className="grid gap-4 md:grid-cols-2">
           {GENDERS.slice(0, 2).map((g) => (
             <Link
               key={g.key}
@@ -176,7 +177,7 @@ export default async function HomePage() {
               </span>
             </Link>
           ))}
-        </div>
+        </Reveal>
       </section>
     </div>
   );

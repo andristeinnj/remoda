@@ -9,6 +9,7 @@
     "new": "Nowości",
     "sale": "Wyprzedaż",
     "sell": "Sprzedaj",
+    "wishlist": "Ulubione",
     "search": "Szukaj",
     "account": "Moje konto",
     "cart": "Koszyk"
@@ -220,5 +221,11 @@
     "preferences": "Preferencje",
     "preferencesDesc": "Zapamiętują Twoje wybory i ustawienia.",
     "manage": "Ustawienia cookie"
+  },
+  "wishlist": {
+    "title": "Twoje ulubione",
+    "empty": "Twoja lista ulubionych jest pusta.",
+    "add": "Dodaj do ulubionych",
+    "remove": "Usuń z ulubionych"
   }
 }

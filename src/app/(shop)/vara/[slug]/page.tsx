@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ProductGallery } from "@/components/product/product-gallery";
 import { ProductGrid } from "@/components/product/product-grid";
 import { AddToCartButton } from "@/components/product/add-to-cart-button";
+import { WishlistButton } from "@/components/wishlist/wishlist-button";
 import { getProductBySlug, listProducts } from "@/lib/queries";
 import { formatISK } from "@/lib/money";
 import { publicImageUrl } from "@/lib/supabase/config";
@@ -102,7 +103,11 @@ export default async function ProductPage({
       </nav>
 
       <div className="grid gap-10 lg:grid-cols-2">
-        <ProductGallery images={product.product_images} title={product.title} />
+        <ProductGallery
+          images={product.product_images}
+          title={product.title}
+          slug={product.slug}
+        />
 
         <div>
           {product.brand && (
@@ -174,9 +179,25 @@ export default async function ProductPage({
             </div>
           )}
 
-          <div className="mt-8">
-            <AddToCartButton
-              sold={isSold}
+          <div className="mt-8 flex gap-3">
+            <div className="flex-1">
+              <AddToCartButton
+                sold={isSold}
+                item={{
+                  id: product.id,
+                  slug: product.slug,
+                  title: product.title,
+                  priceISK: product.price_isk,
+                  image: product.product_images[0]
+                    ? publicImageUrl(product.product_images[0].storage_path)
+                    : null,
+                  size: product.size,
+                  brand: product.brand,
+                }}
+              />
+            </div>
+            <WishlistButton
+              size="lg"
               item={{
                 id: product.id,
                 slug: product.slug,
@@ -206,7 +227,7 @@ export default async function ProductPage({
         <section className="mt-20">
           <h2 className="font-display text-2xl font-semibold">{t("product.related")}</h2>
           <div className="mt-6">
-            <ProductGrid products={related} />
+            <ProductGrid products={related} enableMorph={false} />
           </div>
         </section>
       )}
